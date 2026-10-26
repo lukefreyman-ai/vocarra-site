@@ -166,8 +166,14 @@ a { color: inherit; text-decoration: none; }
      straight through the vertex, so translating the halves apart leaves
      a seam exactly where the anatomy says there is none. */
   .mark {
-    animation: arrive 0.7s linear 0.15s both,
-               unfold 2.6s cubic-bezier(0.37, 0, 0.63, 1) 0.15s both;
+    /* The fade starts on the same frame as the wordmark, not before it.
+       Starting the mark's opacity early made it the first thing on
+       screen, which is the opposite of the brief: it should be opening
+       while the rest appears, not announcing itself ahead of them. The
+       unfold still starts earlier, so by the moment the mark becomes
+       visible it is already part way open and still travelling. */
+    animation: arrive 0.8s linear 0.55s both,
+               unfold 2.7s cubic-bezier(0.37, 0, 0.63, 1) 0.2s both;
   }
 
   .wordmark { animation: arrive 0.8s linear 0.55s both; }

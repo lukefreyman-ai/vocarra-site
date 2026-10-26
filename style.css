@@ -154,25 +154,31 @@ a { color: inherit; text-decoration: none; }
 
 @media (prefers-reduced-motion: no-preference) {
 
-  /* The folds open from the point where they actually join. A true
+  /* The mark is the last thing still moving. It fades in quickly so it is
+     present from the start, then keeps opening for another second after
+     the type has settled, on a sine curve rather than an ease-out so the
+     travel is spread evenly and is still visibly happening at the end.
+     An ease-out would be 95% done a third of the way in and the finish
+     would not read at all.
+
+     The folds open from the point where they actually join. A true
      two-piece split would tear the mark: the vertical centreline runs
      straight through the vertex, so translating the halves apart leaves
-     a seam exactly where the anatomy says there is none. Pivoting from
-     the join gives the same gesture with no seam and one element. */
-  .mark     { animation: unfold 1.3s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both; }
-  .wordmark { animation: arrive 0.8s linear 0.75s both; }
-  .rule     { animation: draw 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.1s both; }
+     a seam exactly where the anatomy says there is none. */
+  .mark {
+    animation: arrive 0.7s linear 0.15s both,
+               unfold 2.6s cubic-bezier(0.37, 0, 0.63, 1) 0.15s both;
+  }
+
+  .wordmark { animation: arrive 0.8s linear 0.55s both; }
+  .rule     { animation: draw 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.85s both; }
 
   /* The lower half arrives as one thing. Three separate staggers down
      there drew attention to the animation instead of the page. */
-  .line, .contact, .foot { animation: arrive 0.85s linear 1.2s both; }
+  .line, .contact, .foot { animation: arrive 0.85s linear 0.95s both; }
 }
 
-@keyframes unfold {
-  from { opacity: 0; transform: scaleX(0.78); }
-  to   { opacity: 1; transform: scaleX(1); }
-}
-
+@keyframes unfold { from { transform: scaleX(0.75); } }
 @keyframes draw   { from { transform: scaleX(0); } }
 @keyframes arrive { from { opacity: 0; } }
 

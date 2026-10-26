@@ -60,7 +60,8 @@ a { color: inherit; text-decoration: none; }
 }
 
 .wordmark {
-  margin: clamp(34px, 7vh, 54px) 0 0;
+  width: fit-content;
+  margin: clamp(34px, 7vh, 54px) auto 0;
   font-size: clamp(1.375rem, 5.6vw, 2rem);
   font-weight: 300;
   line-height: 1;
@@ -93,9 +94,12 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: 0.08em;
 }
 
+/* The underline is the only thing marking these as links, so it carries
+   the 3:1 non-text contrast requirement itself. --faint sits at 2.27:1
+   and is for the decorative hairline only. */
 .contact a {
   padding-bottom: 4px;
-  border-bottom: 1px solid var(--faint);
+  border-bottom: 1px solid var(--quiet);
   transition: border-color 0.2s linear;
 }
 
@@ -114,8 +118,15 @@ a { color: inherit; text-decoration: none; }
   color: var(--quiet);
 }
 
-.foot a { transition: color 0.2s linear; }
-.foot a:hover { color: var(--bone); }
+/* Without an underline this link is the same colour as the copyright
+   beside it and only its position marks it as a link. */
+.foot a {
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--quiet);
+  transition: color 0.2s linear, border-color 0.2s linear;
+}
+
+.foot a:hover { color: var(--bone); border-color: var(--bone); }
 
 /* ----------------------------------------------------------- 404 extras */
 
@@ -134,26 +145,61 @@ a { color: inherit; text-decoration: none; }
 
 @media (prefers-reduced-motion: no-preference) {
 
+  /* A held beat of pure black, then the mark rises from its vertex and
+     settles out of a slight oversize, which gives it weight. */
   .mark {
-    clip-path: inset(100% 0 0 0);
     animation:
-      rise 1s cubic-bezier(0.22, 0.61, 0.36, 1) 0.1s both,
-      breath 9s ease-in-out 1.4s infinite;
+      rise 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both,
+      breath 9s ease-in-out 2.4s infinite;
   }
 
-  .wordmark { animation: lift 0.6s ease-out 0.65s both; }
-  .rule     { animation: draw 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) 1s both; }
-  .line     { animation: lift 0.6s ease-out 1s both; }
-  .contact  { animation: lift 0.6s ease-out 1.2s both; }
-  .foot     { animation: lift 0.6s ease-out 1.35s both; }
+  /* The wordmark opens from its centre outward, the same gesture as the
+     mark turned on its side. A clip wipe, so nothing reflows. */
+  .wordmark { animation: open 1.1s cubic-bezier(0.16, 1, 0.3, 1) 1.15s both; }
+
+  .rule {
+    animation:
+      draw 1s cubic-bezier(0.16, 1, 0.3, 1) 1.7s both,
+      idle 9s ease-in-out 2.75s infinite;
+  }
+
+  .line    { animation: lift 0.8s ease-out 1.95s both; }
+  .contact { animation: lift 0.8s ease-out 2.15s both; }
+  .foot    { animation: lift 0.8s ease-out 2.3s both; }
+
+  /* The page itself breathes with the mark, three pixels over nine
+     seconds. Below the threshold of noticing, above the threshold of
+     feeling. */
+  .stage { animation: drift 9s ease-in-out 2.4s infinite; }
 }
 
-@keyframes rise   { to { clip-path: inset(0 0 0 0); } }
-@keyframes draw   { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-@keyframes lift   { from { opacity: 0; transform: translateY(8px); } }
+@keyframes rise {
+  from { clip-path: inset(100% 0 0 0); transform: scale(1.06); }
+  to   { clip-path: inset(0 0 0 0);    transform: scale(1); }
+}
+
+@keyframes open {
+  from { clip-path: inset(0 50% 0 50%); }
+  to   { clip-path: inset(0 -8% 0 -8%); }
+}
+
+@keyframes draw { from { transform: scaleX(0); } }
+@keyframes lift { from { opacity: 0; transform: translateY(10px); } }
+
+/* Mark and hairline share one phase, so they read as one breath. */
 @keyframes breath {
+  0%, 100% { transform: scale(1, 1); }
+  50%      { transform: scale(0.985, 1.004); }
+}
+
+@keyframes idle {
   0%, 100% { transform: scaleX(1); }
-  50%      { transform: scaleX(0.988); }
+  50%      { transform: scaleX(0.58); }
+}
+
+@keyframes drift {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-3px); }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -138,26 +138,32 @@ a { color: inherit; text-decoration: none; }
    that cannot animate, or a visitor who asked for less motion, simply
    gets the finished page.
 
-   Four beats, not six, and nothing slides. Content sliding up from below
-   is the single most common move on the web and it reads as a template.
-   Restraint is the whole brand, so the mark gets the one real gesture, a
-   hard-edged wipe from its vertex, and everything behind it simply
-   arrives. The page is still by 1.85s and stays still.                  */
+   No travel anywhere. The wipe that used to reveal the mark was a large
+   move with an obvious direction, and large directional moves are what
+   separate a template from a brand. What luxury marks actually do is
+   small and precise: a fade, a fractional scale, and a long flat
+   deceleration that lets the thing settle rather than arrive.
+
+   So the mark resolves from 4.5% oversize down into place over 1.15s on
+   an expo-out curve, which spends most of its time almost still. No
+   overshoot, because a bounce reads as energy and this brand has none.
+   A held beat of black comes first. Everything behind it is opacity
+   only. Settled at 2.05s and then completely still.                    */
 
 @media (prefers-reduced-motion: no-preference) {
 
-  .mark     { animation: rise 1s   cubic-bezier(0.33, 1, 0.68, 1) 0.1s both; }
-  .wordmark { animation: arrive 0.7s linear 0.6s both; }
-  .rule     { animation: draw 0.9s cubic-bezier(0.33, 1, 0.68, 1) 0.95s both; }
+  .mark     { animation: resolve 1.15s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both; }
+  .wordmark { animation: arrive 0.8s linear 0.75s both; }
+  .rule     { animation: draw 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.1s both; }
 
   /* The lower half arrives as one thing. Three separate staggers down
      there drew attention to the animation instead of the page. */
-  .line, .contact, .foot { animation: arrive 0.8s linear 1.05s both; }
+  .line, .contact, .foot { animation: arrive 0.85s linear 1.2s both; }
 }
 
-@keyframes rise {
-  from { clip-path: inset(100% 0 0 0); }
-  to   { clip-path: inset(0 0 0 0); }
+@keyframes resolve {
+  from { opacity: 0; transform: scale(1.045); }
+  to   { opacity: 1; transform: scale(1); }
 }
 
 @keyframes draw   { from { transform: scaleX(0); } }

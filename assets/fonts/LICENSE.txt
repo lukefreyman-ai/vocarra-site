@@ -9,3 +9,15 @@ The two .woff2 files here are the latin and latin-ext subsets served by Google
 Fonts, downloaded on 4 November 2026 and self-hosted so that vocarra.co makes no
 request to any other domain. The page's Content-Security-Policy still says
 default-src 'none'; only font-src 'self' was added for these.
+
+Geist and Geist Mono
+Copyright 2023 Vercel, Inc.
+https://github.com/vercel/geist-font
+
+Licensed under the SIL Open Font License, Version 1.1.
+https://openfontlicense.org
+
+Same arrangement: the latin and latin-ext subsets served by Google Fonts,
+downloaded on 4 November 2026 and self-hosted. Geist is a variable font, so the
+one geist-latin.woff2 carries the whole weight axis and the stylesheet instances
+300, 400 and 500 out of it.

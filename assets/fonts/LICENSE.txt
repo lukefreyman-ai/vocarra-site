@@ -1,0 +1,11 @@
+Instrument Serif
+Copyright 2022 The Instrument Serif Project Authors
+https://github.com/Instrument/instrument-serif
+
+Licensed under the SIL Open Font License, Version 1.1.
+https://openfontlicense.org
+
+The two .woff2 files here are the latin and latin-ext subsets served by Google
+Fonts, downloaded on 4 November 2026 and self-hosted so that vocarra.co makes no
+request to any other domain. The page's Content-Security-Policy still says
+default-src 'none'; only font-src 'self' was added for these.

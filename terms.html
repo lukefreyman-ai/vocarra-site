@@ -11,29 +11,18 @@
 <meta name="color-scheme" content="dark">
 
 <meta http-equiv="Content-Security-Policy"
-      content="default-src 'none'; img-src 'self'; style-src 'self'; font-src 'self'; script-src 'self'; base-uri 'none'; form-action 'none'">
+      content="default-src 'none'; img-src 'self'; style-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 
 <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="assets/icon-512.png" sizes="512x512" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="preload" href="/assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/instrument-serif-latin.woff2" as="font"
       type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-<div class="grain" aria-hidden="true"></div>
-
-<header class="topbar">
-  <a class="topbar__brand" href="/">Vocarra</a>
-  <nav class="topbar__nav">
-    <a href="/rates">Rates</a>
-    <a href="mailto:hello@vocarra.co">Contact</a>
-  </nav>
-</header>
-
 <main class="doc">
   <h1>Terms</h1>
   <p class="asof">Last updated 4 November 2026</p>
@@ -99,27 +88,17 @@
 </main>
 
 <footer class="foot">
-  <div class="foot__row">
-    <p class="foot__say">For those with something to say.</p>
-    <a class="foot__mail" href="mailto:hello@vocarra.co">hello@vocarra.co</a>
-  </div>
-  <div class="foot__row foot__row--fine">
-    <nav class="foot__nav">
-      <a href="/rates">Rates</a>
-      <a href="/refund.html">Refunds</a>
-      <a href="/terms.html">Terms</a>
-      <a href="/privacy.html">Privacy</a>
-      <a href="https://www.instagram.com/vocarra" rel="me noopener">Instagram</a>
-    </nav>
-    <p class="foot__meta">
-      <span>1070 Montgomery Rd, Unit 354, Altamonte Springs, FL 32714</span>
-      <span>&copy; 2026 Vocarra Media</span>
-    </p>
-  </div>
+  <nav class="foot__nav">
+    <a href="/refund.html">Refunds</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="https://www.instagram.com/vocarra" rel="me noopener">Instagram</a>
+  </nav>
+  <p class="foot__meta">
+    <a href="mailto:hello@vocarra.co">hello@vocarra.co</a>
+    <span>1070 Montgomery Rd, Unit 354, Altamonte Springs, FL 32714</span>
+    <span>&copy; 2026 Vocarra Media</span>
+  </p>
 </footer>
-<script src="/assets/js/gsap.min.js" defer></script>
-<script src="/assets/js/ScrollTrigger.min.js" defer></script>
-<script src="/assets/js/lenis.min.js" defer></script>
-<script src="/assets/js/site.js" defer></script>
 </body>
 </html>

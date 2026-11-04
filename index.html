@@ -10,10 +10,10 @@
 <meta name="theme-color" content="#0b0b09">
 <meta name="color-scheme" content="dark">
 
-<!-- The page loads nothing but its own stylesheet, fonts, images and scripts,
-     so say so. GitHub Pages cannot set response headers; meta is what we have. -->
+<!-- The page loads nothing but its own stylesheet and images, so say so.
+     GitHub Pages cannot set response headers; meta is what we have. -->
 <meta http-equiv="Content-Security-Policy"
-      content="default-src 'none'; img-src 'self'; style-src 'self'; font-src 'self'; script-src 'self'; base-uri 'none'; form-action 'none'">
+      content="default-src 'none'; img-src 'self'; style-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 
 <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
@@ -38,8 +38,8 @@
 <meta name="twitter:image" content="https://vocarra.co/assets/og.png">
 <meta name="twitter:image:alt" content="The Vocarra mark, two vocal folds meeting in a V, bone white on black, above the wordmark Vocarra.">
 
-<link rel="preload" href="/assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/assets/fonts/instrument-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/instrument-serif-latin.woff2" as="font"
+      type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
 
 <script type="application/ld+json">
@@ -61,126 +61,34 @@
 </head>
 
 <body>
+<main class="stage">
+  <img class="mark" src="assets/mark.svg" width="1462" height="2408"
+       alt="The Vocarra mark: two vocal folds meeting in a V.">
 
-<!-- Film grain. One tiled SVG turbulence, fixed over the whole document at a
-     few per cent. It is the cheapest thing on the page and it is most of the
-     reason flat black stops looking like an unstyled background. -->
-<div class="grain" aria-hidden="true"></div>
+  <h1 class="wordmark">Vocarra</h1>
 
-<header class="topbar">
-  <a class="topbar__brand" href="/">Vocarra</a>
-  <nav class="topbar__nav">
-    <a href="/rates">Rates</a>
-    <a href="mailto:hello@vocarra.co">Contact</a>
-  </nav>
-</header>
+  <span class="rule" aria-hidden="true"></span>
 
-<main>
+  <p class="line">For those with something to say.</p>
 
-  <!-- ─────────────────────────────────────────────────────────── hero ── -->
-  <section class="hero">
-    <img class="hero__mark" src="assets/mark.svg" width="1462" height="2408"
-         alt="The Vocarra mark: two vocal folds meeting in a V.">
+  <p class="line line--what">Vocarra is a digital media company helping creators and
+  brands grow.</p>
 
-    <div class="hero__inner">
-      <p class="hero__rail hero__rail--top">
-        <span>Podcast clips, cut by hand</span>
-        <span>Altamonte Springs, FL</span>
-      </p>
-
-      <h1 class="hero__word">Vocarra</h1>
-
-      <p class="hero__say">For those with something to say.</p>
-
-      <p class="hero__rail hero__rail--foot">
-        <span>Vocarra Media</span>
-        <span class="hero__scroll">Scroll<i aria-hidden="true"></i></span>
-      </p>
-    </div>
-  </section>
-
-  <!-- ──────────────────────────────────────────────────── the statement ── -->
-  <section class="statement">
-    <p class="statement__index">01 / What we do</p>
-    <p class="statement__text">You already recorded it. Somewhere in that episode is a
-    minute that holds on its own. We go and find it.</p>
-  </section>
-
-  <!-- ────────────────────────────────────────────────────────── process ── -->
-  <section class="process">
-    <div class="process__head">
-      <p class="eyebrow">02 / How it runs</p>
-      <h2 class="process__title">Three steps, and two of them are ours.</h2>
-    </div>
-
-    <ol class="steps">
-      <li class="step" data-rise>
-        <span class="step__no">01</span>
-        <h3 class="step__name">You publish</h3>
-        <p class="step__body">We pull the episode ourselves. Nothing to upload, nothing
-        to send, no change to the way you record.</p>
-      </li>
-      <li class="step" data-rise>
-        <span class="step__no">02</span>
-        <h3 class="step__name">A person watches it</h3>
-        <p class="step__body">Not a score picking the loudest thirty seconds. Someone
-        sits through the episode and marks the moments that still make sense with the
-        rest of it cut away.</p>
-      </li>
-      <li class="step" data-rise>
-        <span class="step__no">03</span>
-        <h3 class="step__name">Clips arrive ready</h3>
-        <p class="step__body">Vertical, captioned, your handle on them, on whatever
-        schedule suits you. One round of revisions on every clip.</p>
-      </li>
-    </ol>
-  </section>
-
-  <!-- ────────────────────────────────────────────────────────── marquee ── -->
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee__track">
-      <span class="marquee__strip">Vertical <i>/</i> Captioned by hand <i>/</i> One round of revisions <i>/</i> Your schedule <i>/</i> Nothing to upload <i>/</i> </span>
-      <span class="marquee__strip">Vertical <i>/</i> Captioned by hand <i>/</i> One round of revisions <i>/</i> Your schedule <i>/</i> Nothing to upload <i>/</i> </span>
-    </div>
-  </div>
-
-  <!-- ────────────────────────────────────────────────────────────── cta ── -->
-  <div class="cta__band"><section class="cta">
-    <p class="eyebrow eyebrow--dark">03 / Rates</p>
-    <a class="cta__link" href="/rates">
-      <span class="cta__word">See the rates</span>
-      <span class="cta__arrow" aria-hidden="true">&#8594;</span>
-    </a>
-    <p class="cta__note">Four plans, from a one off set of three clips to thirty a
-    month. Monthly plans cancel any time before the next billing date.</p>
-  </section></div>
-
+  <p class="contact"><a href="mailto:hello@vocarra.co">hello@vocarra.co</a></p>
 </main>
 
 <footer class="foot">
-  <div class="foot__row">
-    <p class="foot__say">For those with something to say.</p>
-    <a class="foot__mail" href="mailto:hello@vocarra.co">hello@vocarra.co</a>
-  </div>
-  <div class="foot__row foot__row--fine">
-    <nav class="foot__nav">
-      <a href="/rates">Rates</a>
-      <a href="/refund.html">Refunds</a>
-      <a href="/terms.html">Terms</a>
-      <a href="/privacy.html">Privacy</a>
-      <a href="https://www.instagram.com/vocarra" rel="me noopener">Instagram</a>
-    </nav>
-    <p class="foot__meta">
-      <span>1070 Montgomery Rd, Unit 354, Altamonte Springs, FL 32714</span>
-      <span>&copy; 2026 Vocarra Media</span>
-    </p>
-  </div>
+  <nav class="foot__nav">
+    <a href="/refund.html">Refunds</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="https://www.instagram.com/vocarra" rel="me noopener">Instagram</a>
+  </nav>
+  <p class="foot__meta">
+    <a href="mailto:hello@vocarra.co">hello@vocarra.co</a>
+    <span>1070 Montgomery Rd, Unit 354, Altamonte Springs, FL 32714</span>
+    <span>&copy; 2026 Vocarra Media</span>
+  </p>
 </footer>
-
-<script src="assets/js/gsap.min.js" defer></script>
-<script src="assets/js/ScrollTrigger.min.js" defer></script>
-<script src="assets/js/SplitText.min.js" defer></script>
-<script src="assets/js/lenis.min.js" defer></script>
-<script src="assets/js/site.js" defer></script>
 </body>
 </html>

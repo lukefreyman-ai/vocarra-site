@@ -1,4 +1,4 @@
-/* Vocarra — vocarra.co
+/* Vocarra, vocarra.co
    Black, bone, nothing else. No gradient, blur, grain, glow or soft edge. */
 
 :root {
@@ -89,8 +89,19 @@ a { color: inherit; text-decoration: none; }
   color: var(--quiet);
 }
 
+/* The sentence that says plainly what the company is. The tagline above it
+   stays the voice; this is the line a stranger, a bank or a payment processor
+   reads to know what they are looking at, so it is quieter and wider. */
+.line--what {
+  margin: 14px 0 0;
+  max-width: 38ch;
+  font-size: clamp(0.75rem, 3.1vw, 0.8125rem);
+  letter-spacing: 0.04em;
+  color: var(--quiet);
+}
+
 .contact {
-  margin: clamp(48px, 11vh, 88px) 0 0;
+  margin: clamp(36px, 9vh, 72px) 0 0;
   font-size: clamp(0.875rem, 3.6vw, 1rem);
   letter-spacing: 0.08em;
 }
@@ -108,15 +119,39 @@ a { color: inherit; text-decoration: none; }
 
 /* --------------------------------------------------------------- footer */
 
+/* The footer carries four links, an address and a company name now, which is
+   more than the old two-item space-between row could hold without wrapping into
+   something ragged. A centred column sits under a centred stage and still reads
+   as one quiet block rather than a navigation bar. */
 .foot {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 0 var(--gutter) clamp(22px, 4.5vh, 34px);
+  gap: 10px;
+  padding: clamp(28px, 6vh, 48px) var(--gutter) clamp(22px, 4.5vh, 34px);
   font-size: 0.75rem;
   letter-spacing: 0.1em;
   color: var(--quiet);
+  text-align: center;
+}
+
+.foot__nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 22px;
+}
+
+/* The address is the one line here that is read rather than scanned, so it drops
+   the wide tracking the links keep. */
+.foot__meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 18px;
+  margin: 0;
+  letter-spacing: 0.04em;
+  line-height: 1.6;
 }
 
 /* Without an underline this link is the same colour as the copyright
@@ -195,11 +230,7 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 380px) {
   :root { --gutter: 20px; }
   .wordmark { letter-spacing: 0.34em; text-indent: 0.34em; }
-  .foot {
-    flex-direction: column;
-    gap: 12px;
-    padding-bottom: 30px;
-  }
+  .foot { gap: 12px; padding-bottom: 30px; }
 }
 
 /* ── Legal pages ─────────────────────────────────────────────────────────────
